@@ -4,9 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gui"
+        xmlns:UserControls="clr-namespace:Gui.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="800"
+        Width="600">
     <Grid>
+        <!-- TODO[Impl]: Adjust measurements for responsible -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="67*" />
+            <ColumnDefinition Width="33*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="50*" />
+        </Grid.RowDefinitions>
+        <!-- TODO[Remove]: DUMMY FILL FOR LAYOUT -->
+        <Rectangle Grid.Column="0"
+                   Grid.Row="0"
+                   Fill="Aqua" />
+        <UserControls:CityMarketControl />
+        <!-- TODO[Remove]: DUMMY FILL FOR LAYOUT -->
+        <Rectangle Grid.Column="1"
+                   Grid.Row="1"
+                   Fill="DarkGreen" />
+        <UserControls:TurnActionsControl Grid.Row="0" Grid.Column="1" />
 
     </Grid>
 </Window>
