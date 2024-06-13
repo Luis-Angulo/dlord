@@ -29,6 +29,7 @@
                    Grid.Row="1"
                    Fill="DarkGreen" />
         <UserControls:TurnActionsControl Grid.Row="0" Grid.Column="1" />
+        <UserControls:PlayerStatusControl Grid.Row="1" Grid.Column="0" />
 
     </Grid>
 </Window>
