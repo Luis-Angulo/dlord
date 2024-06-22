@@ -5,6 +5,11 @@ namespace Gui.UserControls
 {   
     public partial class CityMarketControl : UserControl
     {
+        //public CityMarketControl(ICityMarketViewModel vm)
+        //{   
+        //    DataContext = vm;
+        //    InitializeComponent();
+        //}
         public CityMarketControl()
         {
             // TODO[Remove]: Hardcoded, should be injected

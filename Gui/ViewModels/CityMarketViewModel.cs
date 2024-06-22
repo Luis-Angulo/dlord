@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Gui.ViewModels
 {
-    class CityMarketViewModel : ViewModelBase
+    class CityMarketViewModel : ViewModelBase, ICityMarketViewModel
     {
         public ObservableCollection<Product>? Products { get; set; }
         public string CityName { get; set; } = "[Cityname]";
