@@ -6,6 +6,7 @@
              Startup="Application_Startup"
              >
     <Application.Resources>
+        <!-- ViewModelLocator hack to allow DI from WPF/XAML -->
         <vm:ViewModelLocator x:Key="ViewModelLocator" />
     </Application.Resources>
 </Application>

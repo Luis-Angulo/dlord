@@ -1,7 +1,4 @@
-﻿using Gui.UserControls;
-using Gui.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Hosting;
 using System.Windows;
 
 namespace Gui
@@ -11,6 +8,7 @@ namespace Gui
         public static IHost? AppHost { get; private set; }
         public App()
         {
+            // Moved DI setup to the VM locator because it doesn't work here
             // Init app services
             //AppHost = Host.CreateDefaultBuilder().ConfigureServices((hostContext, services) =>
             //{
@@ -32,7 +30,7 @@ namespace Gui
             var mainWindow = new MainWindow();
             Current.MainWindow = mainWindow;
             Current.MainWindow.Show();
-            base.OnStartup(e);
+            //base.OnStartup(e); // Causes many new MainWindow objs to open, recursive call?
         }
     }
 
