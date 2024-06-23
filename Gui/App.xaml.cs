@@ -12,24 +12,27 @@ namespace Gui
         public App()
         {
             // Init app services
-            AppHost = Host.CreateDefaultBuilder().ConfigureServices((hostContext, services) =>
-            {
-                services.AddTransient<ICityMarketViewModel, CityMarketViewModel>();
-                // services.AddSingleton<CityMarketControl>(services => new CityMarketControl(new CityMarketViewModel()));
-                services.AddSingleton<CityMarketControl>();
-                services.AddSingleton<MainWindow>();
-            }).Build();
-        }
-        protected override async void OnStartup(StartupEventArgs e)
-        {
-            await AppHost!.StartAsync();
-            AppHost.Services.GetRequiredService<MainWindow>().Show();
-            base.OnStartup(e);
+            //AppHost = Host.CreateDefaultBuilder().ConfigureServices((hostContext, services) =>
+            //{
+            //    services.AddTransient<ICityMarketViewModel, CityMarketViewModel>();
+            //    // services.AddSingleton<CityMarketControl>(services => new CityMarketControl(new CityMarketViewModel()));
+            //    services.AddSingleton<CityMarketControl>();
+            //    services.AddSingleton<MainWindow>();
+            //}).Build();
         }
         protected override async void OnExit(ExitEventArgs e)
         {
-            await AppHost!.StopAsync();
+            await ViewModels.ViewModelLocator.AppHost!.StopAsync();
             base.OnExit(e);
+        }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            ViewModels.ViewModelLocator.AppHost!.Start();
+            var mainWindow = new MainWindow();
+            Current.MainWindow = mainWindow;
+            Current.MainWindow.Show();
+            base.OnStartup(e);
         }
     }
 

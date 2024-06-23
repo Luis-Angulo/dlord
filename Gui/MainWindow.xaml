@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gui"
         xmlns:UserControls="clr-namespace:Gui.UserControls"
+        xmlns:viewmodels="clr-namespace:Gui.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodels:NewsPanelViewModel}"
         mc:Ignorable="d"
         Title="DopeLord 3.0"
         Height="1020"
@@ -21,8 +23,10 @@
         </Grid.RowDefinitions>
         <UserControls:CityMarketControl Grid.Row="0"
                                         Grid.Column="0" />
+        <!--<UserControls:NewsPanelControl Grid.Row="0" Grid.Column="1" />-->
         <UserControls:NewsPanelControl Grid.Row="0"
-                                        Grid.Column="1" />
+                                       Grid.Column="1"
+                                       DataContext="{Binding Path=NewsPanelViewModel, Source={StaticResource ViewModelLocator}}" />
         <UserControls:PlayerStatusControl Grid.Row="1"
                                           Grid.Column="0" />
         <UserControls:TurnActionsControl Grid.Row="1"
